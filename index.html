@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkyPulse — Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="theme-clear-day">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">⛅ SkyPulse</div>
+    <div class="nav-search">
+      <input type="text" id="cityInput" placeholder="Search any city…" autocomplete="off"/>
+      <button id="searchBtn">Search</button>
+    </div>
+    <button class="unit-toggle" id="unitToggle">°C / °F</button>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- LEFT PANEL: Current Weather -->
+    <div class="left-panel">
+
+      <!-- Current Card -->
+      <div class="current-card" id="currentCard">
+        <div class="current-top">
+          <div class="current-location">
+            <h1 class="city-name" id="cityName">—</h1>
+            <p class="country" id="countryName">Search a city to begin</p>
+          </div>
+          <div class="current-icon" id="currentIcon">🌡️</div>
+        </div>
+
+        <div class="current-temp-row">
+          <div class="current-temp" id="currentTemp">—</div>
+          <div class="current-desc">
+            <div class="feels-like" id="feelsLike"></div>
+            <div class="condition" id="condition"></div>
+          </div>
+        </div>
+
+        <div class="current-meta" id="currentMeta">
+          <div class="meta-item"><span class="meta-icon">💧</span><span id="humidity">—</span><small>Humidity</small></div>
+          <div class="meta-item"><span class="meta-icon">🌬️</span><span id="windSpeed">—</span><small>Wind</small></div>
+          <div class="meta-item"><span class="meta-icon">👁️</span><span id="visibility">—</span><small>Visibility</small></div>
+          <div class="meta-item"><span class="meta-icon">🌡️</span><span id="pressure">—</span><small>Pressure</small></div>
+        </div>
+
+        <div class="sun-row" id="sunRow">
+          <div class="sun-item">🌅 <span id="sunrise">—</span><small>Sunrise</small></div>
+          <div class="sun-divider"></div>
+          <div class="sun-item">🌇 <span id="sunset">—</span><small>Sunset</small></div>
+        </div>
+      </div>
+
+      <!-- Hourly Forecast -->
+      <div class="section-card">
+        <h3 class="section-title">⏱ Hourly Forecast</h3>
+        <div class="hourly-scroll" id="hourlyScroll">
+          <div class="placeholder-msg">Search a city to see forecast</div>
+        </div>
+      </div>
+
+      <!-- Air Quality -->
+      <div class="section-card" id="airCard">
+        <h3 class="section-title">🫁 Air Quality Index</h3>
+        <div class="aqi-content" id="aqiContent">
+          <div class="placeholder-msg">—</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+      <!-- 5-Day Forecast -->
+      <div class="section-card">
+        <h3 class="section-title">📅 5-Day Forecast</h3>
+        <div id="forecastList" class="forecast-list">
+          <div class="placeholder-msg">Search a city to see forecast</div>
+        </div>
+      </div>
+
+      <!-- Recent Searches -->
+      <div class="section-card">
+        <h3 class="section-title">🕐 Recent Searches</h3>
+        <div class="recent-list" id="recentList"></div>
+      </div>
+
+      <!-- Weather Tips -->
+      <div class="section-card tips-card" id="tipsCard">
+        <h3 class="section-title">💡 Weather Tips</h3>
+        <div id="tipContent" class="tip-content">Search a city to get tips!</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- LOADING OVERLAY -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <p>Fetching weather…</p>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer class="footer">
+    Built by <strong>Sujal Mandal</strong> · Powered by OpenWeatherMap API ·
+    <a href="https://github.com/sujal0305" target="_blank">GitHub</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
